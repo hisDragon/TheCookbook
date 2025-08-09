@@ -3,7 +3,7 @@ name: API CI Build
 on:
   pull_request:
     branches: [develop]
-    # paths: 'TheCookbookAPI/**'
+    paths: 'TheCookbookAPI/**' # removing checks for non-api code changes
 
 jobs:
   build:
