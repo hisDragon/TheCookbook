@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: TheCookbook/TheCookbookAPI
+        working-directory: ./TheCookbookAPI
 
     steps:
       - name: Checkout code
