@@ -1,0 +1,18 @@
+name: Deploy-API
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  build:
+  - name: Building
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy To Production
+        steps: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          wait-for-success: true
