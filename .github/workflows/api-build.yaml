@@ -3,11 +3,15 @@ name: API CI Build
 on:
   pull_request:
     branches: [develop]
+    paths: 'TheCookbookAPI/**'
 
 jobs:
   build:
     name: Node API Build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./TheCookbookAPI
 
     steps:
       - name: Checkout code
