@@ -1,0 +1,34 @@
+name: Deploy-UI
+on:
+  push:
+    branches: [develop]
+
+jobs:
+  build:
+    name: Build and Deploy Website
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./TheCookbookUI
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24.4.0'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build TypeScript
+        run: npm run build
+
+      - name: Deploy To Production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.RENDER_SITE_SERVICE_ID }}
+          api-key: ${{ secrets.RENDER_API_KEY }}
+          wait-for-success: true

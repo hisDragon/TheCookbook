@@ -13,4 +13,4 @@ router.post('/', async (req, res) => {
   res.status(201).json(savedRecipe);
 });
 
-export default router
+export default router;
