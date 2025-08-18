@@ -1,30 +1,28 @@
-import {useState, useEffect } from 'react';
-import { useFetch } from "./hooks/useFetch";
-import './App.css';
+import Navbar from './components/navbar.jsx'
+import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
+import React from 'react'
+import HomePage from './routes/HomePage.jsx';
+import AllRecipes from './routes/AllRecipes.jsx';
+import AddRecipe from './routes/AddRecipe.jsx';
+import Favourites from './routes/Favourites.jsx';
 
-function App() {
-
-  // const controller = new AbortController();
-  // const signal = controller.signal;
-
-  const [count, setCount] = useState(0);
-  
-  const { data, loading, error } = useFetch(`${import.meta.env.VITE_API_URI}/api/recipes`);
-
-  useEffect(() => {
-    document.title = import.meta.env.VITE_APP_NAME;
-    if(data !== null)
-      setCount(data.length);
-  }, [data]);
-  
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>{error.message}</p>;
+const App = () => {
   return (
     <>
-      <h1>The Cookbook Website</h1>
-      <p>Nishanth and Bhumika have {count} Recipes</p>
+    <BrowserRouter>
+    <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage/>}/>
+        <Route path='/all-recipes' element={<AllRecipes/>}>
+          <Route path=':recipeId' element={<AllRecipes/>}></Route>
+        </Route>
+        <Route path='/add-recipe' element={<AddRecipe/>}/>
+        <Route path='/my-favorites' element={<Favourites/>}/>
+      </Routes>
+    </BrowserRouter>
     </>
-  );
+
+  )
 }
 
 export default App
