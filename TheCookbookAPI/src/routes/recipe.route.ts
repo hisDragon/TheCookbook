@@ -148,8 +148,6 @@ router.patch('/:recipeId', async (req: Request<{ recipeId: mongoose.Schema.Types
 
         const recipeUpdates: Partial<IRecipe> = req.body;
 
-        console.log(recipeUpdates);
-
         const updatedRecipeDocument = await Recipe.findByIdAndUpdate(recipeId, recipeUpdates, { new: true, runValidators: false, upsert: true });
 
         if (!updatedRecipeDocument) {

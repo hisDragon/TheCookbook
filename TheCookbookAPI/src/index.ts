@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import recipeRoutes from './routes/recipe.route';
+import recipeStepsRoutes from './routes/steps.route';
 import SwaggerJSDoc from 'swagger-jsdoc';
 import SwaggerUI from 'swagger-ui-express';
 import m2s from 'mongoose-to-swagger';
@@ -37,6 +38,7 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(express.json());
 app.use('/api/recipes', recipeRoutes);
+app.use('/api/recipes/steps', recipeStepsRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MANGO_URI!)
