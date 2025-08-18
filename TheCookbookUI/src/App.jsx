@@ -5,6 +5,7 @@ import HomePage from './routes/HomePage.jsx';
 import AllRecipes from './routes/AllRecipes.jsx';
 import AddRecipe from './routes/AddRecipe.jsx';
 import Favourites from './routes/Favourites.jsx';
+import SearchResults from './routes/SearchResults.jsx';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         </Route>
         <Route path='/add-recipe' element={<AddRecipe/>}/>
         <Route path='/my-favorites' element={<Favourites/>}/>
+        <Route path='/search-results' element={<SearchResults/>}/>
       </Routes>
     </BrowserRouter>
     </>
