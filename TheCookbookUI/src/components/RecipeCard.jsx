@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { PiForkKnifeBold } from "react-icons/pi";
 import { FaRegClock } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 
-const RecipeCard = () => {
-    const [cards, setCards] = useState([]);
+const RecipeCard = ({ recipes }) => {
+  const [cards, setCards] = useState(recipes || []);
 
-    useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URI}/api/recipes`)
-      .then(res => res.json())
-      .then(data => setCards(data))
-      .catch(err => console.error(err));
-    }, []);
-  
-    return (
+  useEffect(() => {
+    if (!recipes) {
+      fetch(`${import.meta.env.VITE_API_URI}/api/recipes`)
+        .then((res) => res.json())
+        .then((data) => setCards(data))
+        .catch((err) => console.error(err));
+    }
+  }, [recipes]);
+
+  return (
     <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 xl:p-12 p-6 font-fira">
       {cards.map((card) => (
         <div
@@ -37,8 +39,12 @@ const RecipeCard = () => {
 
           {/* Content */}
           <div className="p-6 text-left">
-            <p className="text-primary text-sm font-semibold">{card.category}</p>
-            <h3 className="font-bold text-lg mb-3 hover:text-primary">{card.title}</h3>
+            <p className="text-primary text-sm font-semibold">
+              {card.category}
+            </p>
+            <h3 className="font-bold text-lg mb-3 hover:text-primary">
+              {card.title}
+            </h3>
 
             {/* Meta Info */}
             <div className="flex items-center gap-4 text-gray-600 text-sm">
@@ -57,6 +63,6 @@ const RecipeCard = () => {
       ))}
     </div>
   );
-}
+};
 
-export default RecipeCard
+export default RecipeCard;
