@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { SlEnvolope } from "react-icons/sl";
+import Newsletter_BG from '../assets/Newsletter_BG.jpg'
+import Chef_BG from '../assets/Chef_BG.jpg'
 
 const ContentSection = () => {
   const [navigate, setNavigate] = useState("");
@@ -10,7 +12,7 @@ const ContentSection = () => {
       <div className="relative rounded-xl overflow-hidden text-white h-150">
         {/* Background image */}
         <img
-          src="/src/assets/Newsletter_BG.jpg"
+          src={Newsletter_BG}
           alt="Wok Toss"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -50,7 +52,7 @@ const ContentSection = () => {
       <div className="relative rounded-xl overflow-hidden text-white h-150">
         {/* Background image */}
         <img
-          src="/src/assets/Chef_BG.jpg"
+          src={Chef_BG}
           alt="Chef"
           className="absolute inset-0 w-full h-full object-cover"
         />

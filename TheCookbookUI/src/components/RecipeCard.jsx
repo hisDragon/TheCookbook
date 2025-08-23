@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PiForkKnifeBold } from "react-icons/pi";
 import { FaRegClock } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
+import DefaultRecipeImage from '../assets/general-img.png'
 
 const RecipeCard = ({ card }) => {
   return (
@@ -12,7 +13,7 @@ const RecipeCard = ({ card }) => {
           {/* Image container */}
           <div className="relative">
             <img
-              src="src/assets/general-img.png"
+              src={DefaultRecipeImage}
               alt={card.title}
               className="w-full h-56 object-cover"
             />
