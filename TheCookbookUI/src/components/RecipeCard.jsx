@@ -3,21 +3,8 @@ import { PiForkKnifeBold } from "react-icons/pi";
 import { FaRegClock } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
 
-const RecipeCard = ({ recipes }) => {
-  const [cards, setCards] = useState(recipes || []);
-
-  useEffect(() => {
-    if (!recipes) {
-      fetch(`${import.meta.env.VITE_API_URI}/api/recipes`)
-        .then((res) => res.json())
-        .then((data) => setCards(data))
-        .catch((err) => console.error(err));
-    }
-  }, [recipes]);
-
+const RecipeCard = ({ card }) => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 xl:p-12 p-6 font-fira">
-      {cards.map((card) => (
         <div
           key={card._id}
           className="rounded-xl hover:shadow-lg transition p-0 overflow-hidden cursor-pointer"
@@ -60,8 +47,6 @@ const RecipeCard = ({ recipes }) => {
             </div>
           </div>
         </div>
-      ))}
-    </div>
   );
 };
 

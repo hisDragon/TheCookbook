@@ -16,52 +16,60 @@ export default function CookbookNavbar() {
         <div className="flex items-center space-x-2">
           <img
             src="/src/assets/the_cookbook_logo.svg"
-            className="w-12 h-12 object-cover rounded-lg cursor-pointer"
+            className="w-12 h-12 object-cover rounded-lg"
           />
-          <span className="text-primary font-bold text-3xl font-fira">
-            The Cookbook
+          <span
+            className="text-primary font-bold text-3xl font-fira cursor-pointer"
+            onClick={() => {
+              setNavigate("/");
+            }}
+          >
+            <Link to="/">The Cookbook</Link>
           </span>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-6">
-          <li 
-          onClick={() => {
-              setNavigate("/");
-            }} 
-          className="font-medium list-none hover:text-primary font-fira">
-            <Link to='/'>Home</Link>
-          </li>
-          <li            
+          <li
             onClick={() => {
-              setNavigate("all-recipes");
-            }}             
+              setNavigate("/");
+            }}
             className="font-medium list-none hover:text-primary font-fira"
           >
-            <Link to='/all-recipes'>All Recipes</Link>
+            <Link to="/">Home</Link>
+          </li>
+          <li
+            onClick={() => {
+              setNavigate("all-recipes");
+            }}
+            className="font-medium list-none hover:text-primary font-fira"
+          >
+            <Link to="/all-recipes">All Recipes</Link>
           </li>
         </div>
         <div className="hidden md:flex items-center space-x-3">
-          <li            
+          <li
             onClick={() => {
               setNavigate("my-favorites");
-            }}             
+            }}
             className="cursor-pointer list-none hover:text-primary w-4 h-4"
           >
-            <Link to='/my-favorites'><FaRegBookmark/></Link>
+            <Link to="/my-favorites">
+              <FaRegBookmark />
+            </Link>
           </li>
-          
+
           <LuUser className="cursor-pointer hover:text-primary w-5 h-5" />
-          
-          <Link to='/add-recipe'>
-          <button
-            onClick={() => {
-              setNavigate("add-recipe");
-            }}
-            className="bg-secondary cursor-pointer text-black text-sm font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white font-fira"
-          >
-            Add Recipe
-          </button>
+
+          <Link to="/add-recipe">
+            <button
+              onClick={() => {
+                setNavigate("add-recipe");
+              }}
+              className="bg-secondary cursor-pointer text-black text-sm font-medium px-6 py-3 rounded-lg hover:bg-primary hover:text-white font-fira"
+            >
+              Add Recipe
+            </button>
           </Link>
         </div>
 
@@ -81,20 +89,21 @@ export default function CookbookNavbar() {
       {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-white font-fira shadow-md px-4 py-3 space-y-3">
-          <li 
-          onClick={() => {
-              setNavigate("/");
-            }} 
-          className="block font-medium hover:text-primary">
-            <Link to='/'>Home</Link>
-          </li>
-          <li            
+          <li
             onClick={() => {
-              setNavigate("all-recipes");
-            }}             
+              setNavigate("/");
+            }}
             className="block font-medium hover:text-primary"
           >
-            <Link to='/all-recipes'>All Recipes</Link>
+            <Link to="/">Home</Link>
+          </li>
+          <li
+            onClick={() => {
+              setNavigate("all-recipes");
+            }}
+            className="block font-medium hover:text-primary"
+          >
+            <Link to="/all-recipes">All Recipes</Link>
           </li>
         </div>
       )}
