@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar.jsx'
+import CookbookNavbar from './components/Navbar.jsx'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import React from 'react'
 import HomePage from './routes/HomePage.jsx';
@@ -11,7 +11,7 @@ const App = () => {
   return (
     <>
     <BrowserRouter>
-    <Navbar />
+    <CookbookNavbar />
       <Routes>
         <Route path='/' element={<HomePage/>}/>
         <Route path='/all-recipes' element={<AllRecipes/>}>
