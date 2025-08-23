@@ -1,6 +1,4 @@
-import React from "react";
 import HeroSection from "../components/HeroSection.jsx";
-import RecipeCard from "../components/RecipeCard.jsx";
 import ContentSection from "../components/ContentSection.jsx";
 import HomePageBackground from "../assets/Home_Page_BG2.jpg"
 import RecipeList from "../components/RecipeList.jsx";

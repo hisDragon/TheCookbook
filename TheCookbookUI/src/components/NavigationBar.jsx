@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaRegBookmark } from "react-icons/fa6";
-import { BiSearch } from "react-icons/bi";
 import { LuUser } from "react-icons/lu";
 import { RiCloseLargeFill } from "react-icons/ri";
 import { AiOutlineMenu } from "react-icons/ai";
+import the_cookbook_logo from '../assets/the_cookbook_logo.svg';
 
 export default function CookbookNavbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ export default function CookbookNavbar() {
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img
-            src="/src/assets/the_cookbook_logo.svg"
+            src={the_cookbook_logo}
             className="w-12 h-12 object-cover rounded-lg"
           />
           <span
