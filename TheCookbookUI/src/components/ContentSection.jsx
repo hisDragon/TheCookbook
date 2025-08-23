@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { SlEnvolope } from "react-icons/sl";
 
 const ContentSection = () => {
+  const [navigate, setNavigate] = useState("");
   return (
     <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-12 max-w-6xl mx-auto p-6 font-fira">
-
       {/* Newsletter Block */}
       <div className="relative rounded-xl overflow-hidden text-white h-150">
         {/* Background image */}
@@ -59,19 +60,25 @@ const ContentSection = () => {
         {/* Content */}
         <div className="relative p-8 flex flex-col justify-center h-full">
           <h2 className="text-2xl mt-10 md:text-3xl font-bold leading-snug mb-4">
-            Add flavor, flair, and a <br/>touch of creativity <br/>to your meals.
+            Add flavor, flair, and a <br />
+            touch of creativity <br />
+            to your meals.
           </h2>
           <p className="text-sm md:text-base mb-6 max-w-md">
-            Elevate your dishes with bold flavors and creative twists. 
-            From vibrant ingredients to expert techniques, discover recipes that transform 
-            your everyday cooking into something extraordinary.
+            Elevate your dishes with bold flavors and creative twists. From
+            vibrant ingredients to expert techniques, discover recipes that
+            transform your everyday cooking into something extraordinary.
           </p>
-          <button className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-offset w-fit">
-            View Recipes
+          <button
+            onClick={() => {
+              setNavigate("all-recipes");
+            }}
+            className="bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-offset w-fit"
+          >
+            <Link to="/all-recipes">View Recipes</Link>
           </button>
         </div>
       </div>
-
     </div>
   );
 };

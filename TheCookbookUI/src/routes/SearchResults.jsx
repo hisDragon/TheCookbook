@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HeroSection from "../components/HeroSection.jsx";
-import RecipeCard from "../components/RecipeCard.jsx";
+import RecipeList from "../components/RecipeList.jsx";
 
 const SearchResults = () => {
   const [recipes, setRecipes] = useState([]);
@@ -28,7 +28,7 @@ const SearchResults = () => {
         subtitle={`Total ${recipes.length} Recipes`}
       />
       {
-        recipes.length > 0 ? (<RecipeCard recipes = {recipes} />) : (<p>No Results Found</p>)
+        recipes.length > 0 ? (<RecipeList recipes = {recipes} isCarousel={false} />) : (<p>No Results Found</p>)
       }
     </>
   );
