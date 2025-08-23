@@ -1,4 +1,4 @@
-import CookbookNavbar from './components/Navbar.jsx'
+import CookbookNavbar from './components/NavigationBar.jsx'
 import { BrowserRouter as Router, Routes, Route, BrowserRouter } from "react-router-dom";
 import React from 'react'
 import HomePage from './routes/HomePage.jsx';
