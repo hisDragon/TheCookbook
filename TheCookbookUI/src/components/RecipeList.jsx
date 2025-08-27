@@ -3,17 +3,16 @@ import Slider from "react-slick";
 import { useFetch } from "../hooks/useFetch.js";
 
 const RecipeList = ({ recipes, isCarousel = false }) => {
-    
-    let cards = null
 
-    if (!recipes) {
-        let { data, loading, error } = useFetch(`${import.meta.env.VITE_API_URI}/api/recipes`)
+    const {
+        data: fetchedRecipes,
+        loading,
+        _,
+    } = useFetch(!recipes ? `${import.meta.env.VITE_API_URI}/api/recipes` : null);
 
-        if (loading) return <p>Loading...</p>; // TODO: @bhumika: add styling if required
-        if (error) return <p style={{ color: "red" }}>Error: {error.message}</p>;
+    const cards = recipes || fetchedRecipes || [];
 
-        cards = data;
-    }
+    if (loading) return <p className="p-6">Loading recipes...</p>; //  TODO: @bhumika: add styling if required
 
     // if is carousel
     if (isCarousel) {
