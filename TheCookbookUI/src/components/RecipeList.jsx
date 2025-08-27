@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import { useFetch } from "../hooks/useFetch.js";
 
 const RecipeList = ({ recipes, isCarousel = false }) => {
-
     const {
         data: fetchedRecipes,
         loading,
@@ -30,13 +29,15 @@ const RecipeList = ({ recipes, isCarousel = false }) => {
         };
 
         return (
-            <Slider {...settings} className="p-6 xl:p-12">
-                {cards.map((card) => (
-                    <div key={card._id} className="p-3">
-                        <RecipeCard card={card} />
-                    </div>
-                ))}
-            </Slider>
+            <div className="overflow-hidden p-6">
+                <Slider {...settings}>
+                    {cards.map((card) => (
+                        <div key={card._id} className="p-5">
+                            <RecipeCard card={card} />
+                        </div>
+                    ))}
+                </Slider>
+            </div>
         );
     }
 
