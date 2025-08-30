@@ -20,9 +20,7 @@ export function useFetch(url, options = {}) {
         if (!ignore) setLoading(false);
       }
     }
-    if (url !== null){
-        fetchData();
-    }
+    fetchData();
     return () => { ignore = true; };
   }, [url]);
 
