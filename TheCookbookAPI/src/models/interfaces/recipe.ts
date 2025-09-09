@@ -1,5 +1,6 @@
 import mongoose, { Document } from "mongoose";
 import { IIngredient } from "./ingredient";
+import { INutrition } from "./nutrition";
 
 export interface IRecipe extends Document {
     recipeId: Number;
@@ -11,7 +12,7 @@ export interface IRecipe extends Document {
     servings: Number;
     cookingTime: Number;
     cuisine: string;
-    tags: string;
     images: string[];
+    nutrition: INutrition;
     addedBy: mongoose.Schema.Types.ObjectId;
 }

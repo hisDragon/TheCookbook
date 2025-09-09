@@ -66,11 +66,19 @@ RecipeSchema.example = {
     servings: 10,
     cookingTime: 100,
     cuisine: "CONTINENTAL",
-    tags: "my-tag",
     images: [
         "image1.png",
         "image2.png"
     ],
+    nutrition: {
+        calories: 0,
+        protein: 0,
+        carbohydrates: 0,
+        sugar: 0,
+        salt: 0,
+        energy: 0,
+        fat: 0
+    },
     addedBy: {
         $oid: "6885175aff44591e3dc926f0"
     }
